@@ -12,15 +12,21 @@
 
         list.searchTerm = "";
 
-        list.narrowItDown = function() {
-            var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
 
-            promise.then(function (response) {
-                list.items = response;
-            })
-            .catch(function (error) {
-                console.log("Something went terribly wrong.");
-            });
+        list.narrowItDown = function() {
+            if (list.searchTerm !="") {
+                var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
+
+                promise.then(function (response) {
+                    list.items = response;
+                })
+                .catch(function (error) {
+                    console.log("Something went terribly wrong.");
+                });
+            } else 
+            {
+                list.items = [];
+            }
         };
 
         list.removeItem = function (itemIndex) {
