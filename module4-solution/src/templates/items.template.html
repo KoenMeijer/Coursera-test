@@ -1,0 +1,7 @@
+<div ng-if="items.items"><a ui-sref="home">Home</a> &lt; <a ui-sref="categories">categories</a> &lt; menu items</div>
+<br/>
+<ul>
+    <li ng-repeat="item in items.items">
+        {{ item.name }}
+    </li>
+</ul>
