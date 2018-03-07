@@ -8,6 +8,9 @@ MenuController.$inject = ['menuCategories'];
 function MenuController(menuCategories) {
   var $ctrl = this;
   $ctrl.menuCategories = menuCategories;
+  // No Heroku implementation
+  
+  $ctrl.ShowMessage = true;
 }
 
 

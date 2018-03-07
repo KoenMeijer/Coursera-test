@@ -1,0 +1,12 @@
+<div class="container">
+    <h2 id="signup-title" class="text-center">My Info</h2>
+    <div ng-if="myInfoCtrl.preferenceMenu">
+        {{myInfoCtrl.preferenceMenu.name}}<br/>
+        {{myInfoCtrl.preferenceMenu.description}}<br/>
+        <img width="200" height="200" ng-src="images/menu/{{myInfoCtrl.imageNumber}}/{{myInfoCtrl.imageNumber}}.jpg" alt="{{myInfoCtrl.preferenceMenu.name}}">
+
+    </div>
+    <div ng-if="!myInfoCtrl.preferenceMenu">
+        Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>.
+    </div>
+</div>
