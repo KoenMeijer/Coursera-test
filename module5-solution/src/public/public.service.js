@@ -22,7 +22,7 @@
       service.getMenuItem = function (shortName) {
         var response = $http({
           method: "GET",
-          url: ("http://pacific-anchorage-93797.herokuapp.com/menu_items/" + shortName + ".json")
+          url: ("https://pacific-anchorage-93797.herokuapp.com/menu_items/" + shortName + ".json")
         });
     
         return response;
