@@ -14,7 +14,10 @@
         promise.then(function (response) {
             signup.ShowInvalidMessage = false;
 
-            MenuPreferenceService.savePreference(response.data);
+            var preferenceObject = response.data;
+            preferenceObject.user = signup.user;
+
+            MenuPreferenceService.savePreference(preferenceObject);
             signup.ShowSaveMessage = true;
         })
         .catch(function (error) {

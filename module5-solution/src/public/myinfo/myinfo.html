@@ -1,10 +1,32 @@
 <div class="container">
     <h2 id="signup-title" class="text-center">My Info</h2>
     <div ng-if="myInfoCtrl.preferenceMenu">
-        {{myInfoCtrl.preferenceMenu.name}}<br/>
-        {{myInfoCtrl.preferenceMenu.description}}<br/>
-        <img width="200" height="200" ng-src="images/menu/{{myInfoCtrl.imageNumber}}/{{myInfoCtrl.imageNumber}}.jpg" alt="{{myInfoCtrl.preferenceMenu.name}}">
-
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>{{myInfoCtrl.preferenceMenu.user.firstname}} {{myInfoCtrl.preferenceMenu.user.lastname}} </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{myInfoCtrl.preferenceMenu.user.email}}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{myInfoCtrl.preferenceMenu.user.phone}}</td>
+            </tr>
+            <tr>
+                <td>Favorite menu</td>
+                <td>{{myInfoCtrl.preferenceMenu.name}}</td>
+            </tr>      
+            <tr>
+                <td></td>
+                <td>{{myInfoCtrl.preferenceMenu.description}}</td>
+            </tr>    
+            <tr>
+                <td></td>
+                <td><img width="200" height="200" ng-src="images/menu/{{myInfoCtrl.imageNumber}}/{{myInfoCtrl.imageNumber}}.jpg" alt="{{myInfoCtrl.preferenceMenu.name}}"></td>
+            </tr>                                  
+        </table>
     </div>
     <div ng-if="!myInfoCtrl.preferenceMenu">
         Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>.

@@ -3,65 +3,87 @@
     <fieldset>
         <legend>Sign Up</legend>
         <form name='signupForm' novalidate>
-  
-          <input type="text" name="firstname" placeholder="First name"
-            ng-model="signUpCtrl.user.firstname"
-            required
-            minlength="2"
-            ng-maxlength="25">
-            {{ signup.user.firstname }}
-            <span
-              ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
-              The first name must be at least 2 characters long
-            </span>
-            <span ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
-                The first name must not be longer than 25 characters
-            </span>
-            <br>
-  
-            <input type="text" name="lastname" placeholder="Last name"
-            ng-model="signUpCtrl.user.lastname"
-            required
-            minlength="2"
-            ng-maxlength="25">
-            {{ signup.user.lastname }}
-            <span
-              ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
-              The last name must be at least 2 characters long
-            </span>
-            <span ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
-                The last name must not be longer than 25 characters
-            </span>
-            <br>
+          <table>
+            <tr>
+              <td>Firstname</td>
+              <td>          <input type="text" name="firstname" placeholder="First name"
+                ng-model="signUpCtrl.user.firstname"
+                required
+                minlength="2"
+                ng-maxlength="25">
+                {{ signup.user.firstname }}</td>
+              <td>            
+                <span
+                ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+                The first name must be at least 2 characters long
+              </span>
+              <span ng-if="signupForm.firstname.$error.maxlength && signupForm.firstname.$touched">
+                  The first name must not be longer than 25 characters
+              </span>
+            </td>
+            </tr>
+            <tr>
+              <td>Last name</td>
+              <td>            
+                <input type="text" name="lastname" placeholder="Last name"
+                ng-model="signUpCtrl.user.lastname"
+                required
+                minlength="2"
+                ng-maxlength="25">
+                {{ signup.user.lastname }}</td>
+              <td>
+                  <span
+                  ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+                  The last name must be at least 2 characters long
+                </span>
+                <span ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+                    The last name must not be longer than 25 characters
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>
+                  <input type="email" name="email" placeholder="Email"
+                  ng-model="signUpCtrl.user.email"
+                  required>
+              </td>
+              <td>            <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+                  Must be a valid email address: handle@domain format
+                </span></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>          <input type="text" name="phone" placeholder="Phone ###-###-####"
+                ng-model="signUpCtrl.user.phone"
+                pattern="(\d{3})-(\d{3})-(\d{4})"></td>
+              <td>            <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+                  Phone must be in the format ###-###-####.
+                </span></td>
+            </tr>
+            <tr>
+              <td>Favorite dish</td>
+              <td>            
+                <input type="text" name="menunumber" placeholder="Nr favorite dish"
+                ng-model="signUpCtrl.user.menunumber"
+                required></td>
+              <td>            
+                <span ng-if="signupForm.menunumber.$invalid && signupForm.menunumber.$touched">
+                  Must be a valid menu number
+              </span></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>          
+                <button
+                ng-disabled="signupForm.$invalid"
+                ng-click="signUpCtrl.submit()" 
+                style="color: black;">Submit</button>
+              </td>
+              <td></td>
+            </tr>
+          </table>
 
-          <input type="email" name="email" placeholder="Email"
-            ng-model="signUpCtrl.user.email"
-            required>
-            <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
-              Must be a valid email address: handle@domain format
-            </span>
-            <br>
-  
-          <input type="text" name="phone" placeholder="Phone ###-###-####"
-            ng-model="signUpCtrl.user.phone"
-            pattern="(\d{3})-(\d{3})-(\d{4})">
-            <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
-              Phone must be in the format ###-###-####.
-            </span>
-            <br>
-
-            <input type="text" name="menunumber" placeholder="Nr favorite dish"
-            ng-model="signUpCtrl.user.menunumber"
-            required>
-            <span ng-if="signupForm.menunumber.$invalid && signupForm.menunumber.$touched">
-                Must be a valid menu number
-            </span>
-            <br>
-  
-          <button
-            ng-disabled="signupForm.$invalid"
-            ng-click="signUpCtrl.submit()" 
-            style="color: black;">Submit</button>
   
             <div id="info" ng-if="signUpCtrl.ShowInvalidMessage">
                 No such menu number exists. 
