@@ -9,13 +9,10 @@
       var service = this;
     
       service.savePreference = function (menuPreference) {
-        console.log("MenuPreference: " + menuPreference);
         service.MenuPreference = menuPreference;
-        console.log("service.MenuPreference: " + service.MenuPreference);
       };
 
       service.getPreference = function () {
-        console.log("service.MenuPreference: " + service.MenuPreference);
         return service.MenuPreference;
       };
 
