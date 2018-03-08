@@ -11,7 +11,6 @@
       myinfo.preferenceMenu = preferenceMenu;
       if (preferenceMenu) {
         myinfo.imageNumber = preferenceMenu.short_name.replace(/[^A-Z]/g,'');
-        console.log(myinfo.imageNumber);
       }
     }
     })();
